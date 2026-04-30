@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입장 흐름 — BooQR</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">BooQR</a>
+      <nav class="site-nav">
+        <a href="features.html">기능</a>
+        <a href="flow.html" class="active">입장 흐름</a>
+        <a href="pricing.html">도입 비용</a>
+        <a href="contact.html" class="btn-primary">도입 문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>입장 흐름</h1>
+      <p>예약 생성부터 입장 처리까지의 전체 흐름.</p>
+    </div>
+  </section>
+
+  <section class="flow-steps">
+    <div class="container">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>예약 생성</h3>
+          <p>방문자가 기존 통합예약 시스템에서 예약을 생성하면, 예약 확정 이벤트가 webhook으로 BooQR에 전달됩니다. BooQR은 자체 데이터베이스에 티켓을 발급하고 예약·프로그램 정보를 JSON 스냅샷으로 박제합니다.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>알림 발송</h3>
+          <p>기관 설정에 따라 SMS / 알림톡 / 이메일로 티켓 URL이 발송됩니다. 우선순위 채널이 실패하면 폴백 채널로 자동 전환. 알림 채널이 없는 기관은 포털에서 전화+예약번호로 조회하는 lookup 방식 지원.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>방문자 QR 조회</h3>
+          <p>방문자가 메시지의 링크를 클릭하면 QR 페이지가 열립니다. 모바일 화면 하단에는 같은 기관의 다른 프로그램을 안내하는 영역이 함께 노출됩니다.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>관리자 사전 동기화</h3>
+          <p>입장 시작 30분 전, 관리자 PWA 스캐너가 자동으로 사전 동기화를 수행합니다. 취소된 티켓 목록·직원 인증 토큰·서명 공개키를 IndexedDB에 다운로드해 오프라인 환경에서도 검증할 준비를 끝냅니다.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>현장 QR 스캔</h3>
+          <p>방문자가 QR을 보여 주면 관리자가 카메라로 스캔합니다. 스캐너는 로컬에서 4단계 검증을 거치고 결과를 즉시 표시합니다.<br><strong>통과:</strong> 녹색 + 방문자 정보 표시 + 입장 처리<br><strong>거부:</strong> 빨강 + 거부 사유 (취소·만료·이미 입장 등)</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h3>오프라인 큐잉 → 복구 동기화</h3>
+          <p>통신이 끊긴 동안에도 검증이 가능하며, 체크인 결과는 IndexedDB의 펜딩 큐에 쌓입니다. 네트워크가 복구되는 즉시 큐의 기록을 서버에 일괄 동기화합니다. 만약 같은 티켓을 다른 스캐너가 먼저 처리한 경우엔 첫 번째만 인정되고 나머지는 충돌 로그로 보관됩니다.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <h3>운영 실적 집계</h3>
+          <p>모든 체크인은 실시간으로 운영 대시보드에 반영됩니다. 예약·입장·노쇼·시간대 분포·직원별 처리 건수 등이 자동으로 모이고, 일·주·월 단위 CSV 내보내기를 지원합니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <a href="contact.html" class="btn-primary btn-lg">도입 문의하기</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>BooQR</strong>
+        <p class="footer-sub">종이 없는 QR 입장 관리 SaaS</p>
+      </div>
+      <div class="footer-meta">
+        <p>contact@booqr.kr</p>
+        <p>© 2026 BooQR</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

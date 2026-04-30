@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BooQR — 종이 없는 QR 입장 관리 SaaS. 통합예약 시스템과 webhook 한 줄로 연결.">
+  <title>BooQR — 종이 없는 QR 입장 관리</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">BooQR</a>
+      <nav class="site-nav">
+        <a href="features.html">기능</a>
+        <a href="flow.html">입장 흐름</a>
+        <a href="pricing.html">도입 비용</a>
+        <a href="contact.html" class="btn-primary">도입 문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">종이 없는 입장 관리,<br>QR 한 장으로 끝.</h1>
+      <p class="hero-sub">
+        통합예약 시스템과 webhook 한 줄로 연결.<br>
+        방문자는 출력물 없이 휴대폰 QR로 입장,<br>
+        관리자는 PWA 카메라로 스캔만 하면 됩니다.
+      </p>
+      <div class="hero-cta">
+        <a href="contact.html" class="btn-primary btn-lg">도입 문의하기</a>
+        <a href="features.html" class="btn-secondary btn-lg">기능 살펴보기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-grid">
+    <div class="container">
+      <h2 class="section-title">왜 BooQR인가</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>출력물 제로</h3>
+          <p>예약 확인서 출력·지참이 사라집니다. 방문자는 SMS·알림톡으로 받은 링크만 클릭하면 끝.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📷</div>
+          <h3>모바일 PWA 스캐너</h3>
+          <p>별도 앱 설치 없이 모바일 브라우저에서 카메라로 QR 스캔. 통신 단절 시에도 오프라인 검증.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔗</div>
+          <h3>기존 시스템과 느슨한 결합</h3>
+          <p>기존 통합예약 시스템의 DB·코드를 건드리지 않고 webhook 이벤트로만 연결.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>운영 실적 자동 집계</h3>
+          <p>예약·입장률·노쇼율·시간대 분포가 자동으로 모입니다. CSV 내보내기 지원.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔐</div>
+          <h3>위변조 방지 서명 QR</h3>
+          <p>Ed25519 서명된 JWT 기반 QR. 캡처 후 공유·도용도 1회 입장 정책으로 차단.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏛</div>
+          <h3>멀티테넌트 SaaS</h3>
+          <p>10+ 기관 + 추후 확장. 신규 기관 도입 시 코드 변경 없이 설정만으로 온보딩.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screens">
+    <div class="container">
+      <h2 class="section-title">실제 사용 화면</h2>
+      <div class="screen-row">
+        <figure class="screen-card">
+          <div class="screen-mock">방문자 QR 화면<br><span class="mock-sub">(스크린샷 자리)</span></div>
+          <figcaption>방문자 — 휴대폰에서 QR 표시</figcaption>
+        </figure>
+        <figure class="screen-card">
+          <div class="screen-mock">관리자 PWA 스캐너<br><span class="mock-sub">(스크린샷 자리)</span></div>
+          <figcaption>관리자 — 카메라로 QR 스캔</figcaption>
+        </figure>
+        <figure class="screen-card">
+          <div class="screen-mock">운영 대시보드<br><span class="mock-sub">(스크린샷 자리)</span></div>
+          <figcaption>관리자 — 운영 실적 집계</figcaption>
+        </figure>
+      </div>
+      <p class="screens-note">스크린샷은 운영 환경의 시연용 가짜 데이터로 갈아끼웁니다.</p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <h2>도입 검토 중이신가요?</h2>
+      <p>15분 시연으로 충분합니다. 일정만 알려주세요.</p>
+      <a href="contact.html" class="btn-primary btn-lg">문의하기</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>BooQR</strong>
+        <p class="footer-sub">종이 없는 QR 입장 관리 SaaS</p>
+      </div>
+      <div class="footer-meta">
+        <p>contact@booqr.kr</p>
+        <p>© 2026 BooQR</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

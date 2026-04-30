@@ -57,4 +57,3 @@ git push origin main
 ## 라이선스
 
 (추후 결정)
-# BooQR-landing
