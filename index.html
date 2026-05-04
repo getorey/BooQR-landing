@@ -3,215 +3,333 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BooQR — QR 기반 입장 관리 SaaS</title>
-  <meta name="description" content="외부 예약 시스템에 코드 한 줄 추가로 QR 발급·입장 처리·운영 대시보드까지. 5분 체험 가능.">
-  <meta property="og:title" content="BooQR — QR 입장 관리">
-  <meta property="og:description" content="외부 예약 시스템에 코드 한 줄. 인터넷 끊겨도 입장 처리. 30분 안에 도입.">
+  <title>BooQR — 기관용 QR 입장 관리</title>
+  <meta name="description" content="기관에서 이미 사용 중인 예약 시스템에 더해, QR 코드 한 장으로 입장 확인이 끝나는 서비스. 5분 시연 가능.">
+  <meta property="og:title" content="BooQR — 기관용 QR 입장 관리">
+  <meta property="og:description" content="예약은 그대로, 입장 관리만 더 쉽게. 와이파이 끊겨도 입장 처리.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230f172a'/%3E%3Crect x='10' y='10' width='14' height='14' fill='%2310b981'/%3E%3Crect x='40' y='10' width='14' height='14' fill='%2310b981'/%3E%3Crect x='10' y='40' width='14' height='14' fill='%2310b981'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230066cc'/%3E%3Crect x='10' y='10' width='14' height='14' fill='%235fffc0'/%3E%3Crect x='40' y='10' width='14' height='14' fill='%235fffc0'/%3E%3Crect x='10' y='40' width='14' height='14' fill='%235fffc0'/%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: { DEFAULT: '#0f766e', dark: '#0d5c56' },
-            ink:     { DEFAULT: '#0f172a' },
+            primary: {
+              DEFAULT: '#0066cc',
+              dark:    '#003d7a',
+              soft:    '#e6f0fa',
+            },
+            accent: {
+              DEFAULT: '#00a86b',
+              soft:    '#d6f3e5',
+            },
           },
           fontFamily: {
-            sans: ['-apple-system','BlinkMacSystemFont','"Segoe UI"','"Apple SD Gothic Neo"','"Pretendard Variable"','Pretendard','Roboto','sans-serif'],
+            sans: ['"Pretendard Variable"', 'Pretendard', '"Apple SD Gothic Neo"', '"맑은 고딕"', '"Malgun Gothic"', '"Noto Sans KR"', '-apple-system', 'sans-serif'],
           },
         },
       },
     };
   </script>
   <style>
-    body { background: linear-gradient(180deg,#0b1220 0%,#0f172a 60%,#111827 100%); color: #e5e7eb; }
-    .glass { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
-    .glass-light { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+    body { -webkit-font-smoothing: antialiased; }
+    .underline-soft {
+      background: linear-gradient(180deg, transparent 60%, #d6f3e5 60%);
+    }
+    .hero-dots {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1.5px, transparent 1.7px);
+      background-size: 14px 14px;
+    }
   </style>
 </head>
-<body class="font-sans antialiased">
+<body class="bg-white text-slate-900 font-sans">
 
-  <!-- ─────────────── Nav ─────────────── -->
-  <header class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2 font-bold text-white">
-      <span class="inline-block w-7 h-7 rounded-md bg-emerald-500"></span>
-      BooQR
-    </a>
-    <nav class="hidden md:flex gap-6 text-sm text-gray-300">
-      <a href="#scenarios" class="hover:text-white">시연 시나리오</a>
-      <a href="#features" class="hover:text-white">핵심 가치</a>
-      <a href="#contact" class="hover:text-white">도입 문의</a>
-    </nav>
+  <!-- ─────────────── Header ─────────────── -->
+  <header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="#" class="text-xl font-extrabold tracking-tight text-primary-dark">
+        Boo<span class="text-accent">Q</span>R
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-600">
+        <a href="#pain" class="hover:text-slate-900">고민</a>
+        <a href="#features" class="hover:text-slate-900">기능</a>
+        <a href="#scenarios" class="hover:text-slate-900">시연</a>
+        <a href="#process" class="hover:text-slate-900">도입</a>
+        <a href="#contact" class="bg-primary hover:bg-primary-dark text-white font-semibold px-4 py-2 rounded-lg">
+          파일럿 문의
+        </a>
+      </nav>
+    </div>
   </header>
 
-  <!-- ─────────────── Hero ─────────────── -->
-  <section class="max-w-6xl mx-auto px-6 pt-12 pb-24">
-    <p class="text-emerald-400 text-sm font-semibold tracking-wider uppercase mb-4">
-      QR 입장 관리 SaaS
-    </p>
-    <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-      외부 예약 시스템에<br>
-      <span class="text-emerald-400">코드 한 줄</span> — 30분이면 운영
-    </h1>
-    <p class="text-lg text-gray-300 max-w-2xl mb-10">
-      예약 → SMS → QR → 입장 처리 → 통계까지 한 흐름. 인터넷이 끊겨도 입장은 멈추지 않습니다.
-      현장 직원이 카메라로 비추면 0.5초 안에 결과가 뜹니다.
-    </p>
-    <div class="flex flex-wrap gap-3">
-      <a href="https://demo-booqr.koavio.com/" target="_blank" rel="noopener"
-         class="bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold px-7 py-4 rounded-xl text-lg shadow-lg shadow-emerald-500/20">
-        5분 체험 시작 →
-      </a>
-      <a href="#scenarios" class="glass-light hover:bg-white/10 text-white font-medium px-7 py-4 rounded-xl text-lg">
-        시연 시나리오 보기
-      </a>
-    </div>
-    <p class="text-xs text-gray-500 mt-6">데모 환경 — 매일 03:00 KST 자동 리셋. 실 데이터 아님.</p>
-  </section>
-
-  <!-- ─────────────── Features ─────────────── -->
-  <section id="features" class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold text-white mb-12 text-center">왜 BooQR인가</h2>
-    <div class="grid md:grid-cols-3 gap-5">
-      <div class="glass rounded-2xl p-6">
-        <div class="text-emerald-400 text-3xl mb-4">⚡</div>
-        <h3 class="font-bold text-white text-lg mb-2">코드 한 줄 연동</h3>
-        <p class="text-sm text-gray-400">
-          외부 예약 시스템이 webhook 1개 또는 HTML <code class="bg-white/10 px-1 rounded text-xs">&lt;script&gt;</code> 한 줄을 추가하면 끝.
-          기존 시스템에 BooQR 코드를 넣을 필요 없음.
-        </p>
+  <!-- ─────────────── ① HERO ─────────────── -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark text-white">
+    <div class="absolute inset-0 hero-dots opacity-40"></div>
+    <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="relative max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="inline-block bg-white/20 border border-white/30 text-white text-xs font-medium px-4 py-1.5 rounded-full">
+          기관용 QR 입장 관리 서비스
+        </span>
       </div>
-      <div class="glass rounded-2xl p-6">
-        <div class="text-emerald-400 text-3xl mb-4">📱</div>
-        <h3 class="font-bold text-white text-lg mb-2">오프라인 입장 처리</h3>
-        <p class="text-sm text-gray-400">
-          카메라 + IndexedDB + Ed25519 서명 검증으로 인터넷 없이도 동작.
-          박물관·과학관 같은 와이파이 불안한 환경에서 운영 멈춤 0.
-        </p>
-      </div>
-      <div class="glass rounded-2xl p-6">
-        <div class="text-emerald-400 text-3xl mb-4">🔒</div>
-        <h3 class="font-bold text-white text-lg mb-2">개인정보 자동 보호</h3>
-        <p class="text-sm text-gray-400">
-          자동 비식별화(보존기간 기본 90일) + 즉시 삭제 + 감사 로그.
-          개인정보보호법 §15·§21·§28 대응.
-        </p>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+        예약은 그대로,<br>
+        <span class="text-[#5fffc0]">입장 관리</span>만 더 쉽게.
+      </h1>
+      <p class="text-base md:text-lg text-white/90 max-w-2xl mb-10 leading-relaxed">
+        기관에서 이미 사용 중인 예약 시스템에 더해, QR 코드 한 장으로 입장 확인이 끝나는 서비스입니다.
+        기존 시스템 교체나 데이터 이전 없이 바로 도입하실 수 있습니다.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="https://demo-booqr.koavio.com/" target="_blank" rel="noopener"
+           class="bg-[#5fffc0] hover:bg-[#3fefb0] text-primary-dark font-bold px-7 py-4 rounded-xl text-lg shadow-lg shadow-black/10">
+          5분 체험 시작 →
+        </a>
+        <a href="#scenarios"
+           class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-7 py-4 rounded-xl text-lg">
+          시연 시나리오 보기
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ─────────────── Scenarios ─────────────── -->
-  <section id="scenarios" class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold text-white mb-3 text-center">5분 시연 시나리오</h2>
-    <p class="text-gray-400 text-center mb-12">
-      BMT 데모 환경. 아무 카드나 클릭하셔서 직접 만져보세요.
-    </p>
+  <!-- ─────────────── ② PAIN POINTS ─────────────── -->
+  <section id="pain" class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="block w-10 h-1 bg-primary rounded"></span>
+        <p class="text-primary font-semibold text-sm tracking-wide">이런 고민, 한 번쯤 해보지 않으셨나요?</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-x-12 gap-y-5">
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-white border-2 border-primary text-primary font-extrabold text-sm flex items-center justify-center mt-0.5">?</span>
+          <p class="text-slate-700 leading-relaxed">행사 때마다 명단을 출력해 펜으로 체크하느라 시간이 부족하지 않으신가요?</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-white border-2 border-primary text-primary font-extrabold text-sm flex items-center justify-center mt-0.5">?</span>
+          <p class="text-slate-700 leading-relaxed">행사장 와이파이가 불안정해서 입장이 지체된 적 있으신가요?</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-white border-2 border-primary text-primary font-extrabold text-sm flex items-center justify-center mt-0.5">?</span>
+          <p class="text-slate-700 leading-relaxed">개인정보를 언제까지 보관하고 어떻게 파기할지 헷갈리지 않으신가요?</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-white border-2 border-primary text-primary font-extrabold text-sm flex items-center justify-center mt-0.5">?</span>
+          <p class="text-slate-700 leading-relaxed">월말마다 입장자 수와 참석률 보고서 작성으로 야근하시지는 않으셨나요?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── ③ FEATURES ─────────────── -->
+  <section id="features" class="max-w-6xl mx-auto px-6 py-20">
+    <div class="flex items-baseline justify-between mb-10">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+        BooQR이 <span class="underline-soft">해결해드립니다</span>
+      </h2>
+      <span class="hidden md:block text-sm text-slate-500">4가지 핵심 기능</span>
+    </div>
 
     <div class="grid md:grid-cols-2 gap-5">
+      <!-- 01 -->
+      <article class="relative bg-white border border-slate-200 rounded-2xl p-7 overflow-hidden hover:shadow-lg transition-shadow">
+        <span class="absolute top-1 right-3 text-7xl font-black text-primary-soft tracking-tight select-none">01</span>
+        <div class="relative w-12 h-12 rounded-xl bg-primary-soft text-primary flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <h3 class="relative text-xl font-extrabold mb-2">손쉬운 연동</h3>
+        <p class="relative text-primary font-semibold text-sm mb-3">지금 쓰시는 예약 시스템, 그대로 두셔도 됩니다</p>
+        <p class="relative text-sm text-slate-600 leading-relaxed">기존 시스템을 교체하거나 데이터를 옮기실 필요가 없습니다. BooQR이 보내드리는 한 줄짜리 연동 안내문을 IT 담당자에게 전달하시면 짧은 시간 안에 연동이 완료됩니다.</p>
+      </article>
 
-      <!-- Scenario A — Visitor -->
-      <a href="https://demo-booqr.koavio.com/" target="_blank" rel="noopener"
-         class="glass hover:glass-light rounded-2xl p-6 group transition">
-        <div class="flex items-start justify-between mb-4">
-          <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-0.5 rounded font-mono">A · 1분</span>
-          <span class="text-2xl group-hover:translate-x-1 transition">→</span>
+      <!-- 02 -->
+      <article class="relative bg-white border border-slate-200 rounded-2xl p-7 overflow-hidden hover:shadow-lg transition-shadow">
+        <span class="absolute top-1 right-3 text-7xl font-black text-accent-soft tracking-tight select-none">02</span>
+        <div class="relative w-12 h-12 rounded-xl bg-accent-soft text-accent flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
         </div>
-        <h3 class="font-bold text-white text-xl mb-2">방문자가 QR 받기</h3>
-        <p class="text-sm text-gray-400 mb-4">
-          포털에서 휴대폰·예약번호로 본인 티켓 조회. 알림톡 못 받았을 때 셀프 조회 흐름.
-        </p>
-        <div class="bg-white/5 rounded-lg p-3 text-xs space-y-1 font-mono">
-          <p class="text-gray-300">휴대폰: <span class="text-emerald-300">010-9876-5432</span></p>
-          <p class="text-gray-300">예약번호: <span class="text-emerald-300">DEMO001</span></p>
-        </div>
-      </a>
+        <h3 class="relative text-xl font-extrabold mb-2">오프라인 입장</h3>
+        <p class="relative text-accent font-semibold text-sm mb-3">현장 인터넷이 끊겨도 입장은 계속됩니다</p>
+        <p class="relative text-sm text-slate-600 leading-relaxed">와이파이가 일시적으로 끊겨도 직원의 스마트폰으로 QR 코드를 찍어 입장 확인이 가능합니다. 인터넷이 복구되면 그 사이의 기록이 자동으로 명단에 반영됩니다.</p>
+      </article>
 
-      <!-- Scenario B — Staff Scanner -->
-      <a href="https://demo-booqr.koavio.com/scanner" target="_blank" rel="noopener"
-         class="glass hover:glass-light rounded-2xl p-6 group transition">
-        <div class="flex items-start justify-between mb-4">
-          <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-0.5 rounded font-mono">B · 2분</span>
-          <span class="text-2xl group-hover:translate-x-1 transition">→</span>
+      <!-- 03 -->
+      <article class="relative bg-white border border-slate-200 rounded-2xl p-7 overflow-hidden hover:shadow-lg transition-shadow">
+        <span class="absolute top-1 right-3 text-7xl font-black text-amber-100 tracking-tight select-none">03</span>
+        <div class="relative w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
-        <h3 class="font-bold text-white text-xl mb-2">입장 직원 — 카메라 스캔</h3>
-        <p class="text-sm text-gray-400 mb-4">
-          모바일 PWA. 카메라로 QR 비추기 → 0.5초 안에 녹/주/적 결과. 비행기 모드에서도 동작.
-        </p>
-        <div class="bg-white/5 rounded-lg p-3 text-xs space-y-1 font-mono">
-          <p class="text-gray-300">계정: <span class="text-emerald-300">staff@demo.booqr.kr</span></p>
-          <p class="text-gray-300">암호: <span class="text-emerald-300">Demo1234!</span></p>
-        </div>
-      </a>
+        <h3 class="relative text-xl font-extrabold mb-2">개인정보 자동 보호</h3>
+        <p class="relative text-amber-700 font-semibold text-sm mb-3">보관 기간이 지나면 이름·연락처가 자동으로 가려집니다</p>
+        <p class="relative text-sm text-slate-600 leading-relaxed">설정하신 기간(기본 90일)이 지나면 이름·연락처가 자동으로 식별 불가능한 형태로 바뀝니다. 모든 열람·수정·삭제 기록도 함께 남아 점검·감사 시 활용 가능합니다.</p>
+      </article>
 
-      <!-- Scenario C — Operator Console -->
-      <a href="https://demo-booqr.koavio.com/admin" target="_blank" rel="noopener"
-         class="glass hover:glass-light rounded-2xl p-6 group transition">
-        <div class="flex items-start justify-between mb-4">
-          <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-0.5 rounded font-mono">C · 2분</span>
-          <span class="text-2xl group-hover:translate-x-1 transition">→</span>
+      <!-- 04 -->
+      <article class="relative bg-white border border-slate-200 rounded-2xl p-7 overflow-hidden hover:shadow-lg transition-shadow">
+        <span class="absolute top-1 right-3 text-7xl font-black text-violet-100 tracking-tight select-none">04</span>
+        <div class="relative w-12 h-12 rounded-xl bg-violet-100 text-violet-700 flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
         </div>
-        <h3 class="font-bold text-white text-xl mb-2">운영자 — 콘솔·통계</h3>
-        <p class="text-sm text-gray-400 mb-4">
-          KPI · 시간대별 입장 분포 · 프로그램별 출석률 · 광고 관리 · 충돌 로그까지 한 화면.
-        </p>
-        <div class="bg-white/5 rounded-lg p-3 text-xs space-y-1 font-mono">
-          <p class="text-gray-300">계정: <span class="text-emerald-300">admin@demo.booqr.kr</span></p>
-          <p class="text-gray-300">암호: <span class="text-emerald-300">Demo1234!</span></p>
-        </div>
-      </a>
-
+        <h3 class="relative text-xl font-extrabold mb-2">운영 통계 리포트</h3>
+        <p class="relative text-violet-700 font-semibold text-sm mb-3">보고서 작성에 쓰실 자료가 자동으로 만들어집니다</p>
+        <p class="relative text-sm text-slate-600 leading-relaxed">일일·주간·월간 입장 현황이 자동 정리됩니다. 프로그램별 참석 인원, 시간대 분포, 미참석 비율 등이 표·그래프로 준비되어 내부 보고나 차년도 사업 자료로 바로 활용 가능합니다.</p>
+      </article>
     </div>
   </section>
 
-  <!-- ─────────────── Numbers ─────────────── -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <div class="grid md:grid-cols-3 gap-5 text-center">
-      <div class="glass rounded-2xl p-6">
-        <p class="text-3xl font-bold text-emerald-400 mb-1">30분</p>
-        <p class="text-xs text-gray-400">평균 도입 시간 (외부 시스템 연동)</p>
+  <!-- ─────────────── ④ 5분 시연 시나리오 ─────────────── -->
+  <section id="scenarios" class="bg-slate-50 border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <div class="text-center mb-3">
+        <span class="inline-block bg-primary-soft text-primary text-xs font-bold px-3 py-1 rounded-full tracking-wide">DEMO</span>
       </div>
-      <div class="glass rounded-2xl p-6">
-        <p class="text-3xl font-bold text-emerald-400 mb-1">0초</p>
-        <p class="text-xs text-gray-400">오프라인 검증 응답 시간 (서버 호출 X)</p>
-      </div>
-      <div class="glass rounded-2xl p-6">
-        <p class="text-3xl font-bold text-emerald-400 mb-1">90일</p>
-        <p class="text-xs text-gray-400">기본 PII 보존 — 자동 비식별화</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────────── Contact ─────────────── -->
-  <section id="contact" class="max-w-6xl mx-auto px-6 py-16">
-    <div class="glass rounded-3xl p-10 text-center">
-      <h2 class="text-3xl font-bold text-white mb-4">파일럿 도입 문의</h2>
-      <p class="text-gray-400 mb-8">
-        기관 BMT용 격리 환경 + 1:1 시연 가능. 보통 30분 통화로 도입 결정.
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-3">5분 시연 시나리오</h2>
+      <p class="text-slate-600 text-center mb-12">
+        BMT 데모 환경에서 직접 만져보실 수 있습니다. 아무 카드나 클릭하시면 됩니다.
       </p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <a href="mailto:contact@booqr.kr"
-           class="bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold px-7 py-3 rounded-xl">
-          이메일 문의
-        </a>
+
+      <div class="grid md:grid-cols-3 gap-5">
+
+        <!-- A: 방문자 -->
         <a href="https://demo-booqr.koavio.com/" target="_blank" rel="noopener"
-           class="glass-light hover:bg-white/10 text-white font-medium px-7 py-3 rounded-xl">
-          데모 다시 보기
+           class="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition">
+          <div class="flex items-start justify-between mb-4">
+            <span class="bg-primary-soft text-primary text-xs px-2 py-0.5 rounded font-mono font-bold">A · 1분</span>
+            <span class="text-xl text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition">→</span>
+          </div>
+          <h3 class="font-extrabold text-lg mb-2">방문자 — QR 받기</h3>
+          <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+            포털에서 휴대폰·예약번호로 본인 티켓을 셀프 조회. 알림톡 못 받았을 때의 흐름.
+          </p>
+          <div class="bg-slate-50 rounded-lg p-3 text-xs space-y-1 font-mono border border-slate-200">
+            <p class="text-slate-500">휴대폰: <span class="text-primary font-semibold">콘솔에서 확인</span></p>
+            <p class="text-slate-500">예약번호: <span class="text-primary font-semibold">DEMO001</span></p>
+          </div>
         </a>
+
+        <!-- B: 입장 직원 -->
+        <a href="https://demo-booqr.koavio.com/scanner" target="_blank" rel="noopener"
+           class="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition">
+          <div class="flex items-start justify-between mb-4">
+            <span class="bg-accent-soft text-accent text-xs px-2 py-0.5 rounded font-mono font-bold">B · 2분</span>
+            <span class="text-xl text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition">→</span>
+          </div>
+          <h3 class="font-extrabold text-lg mb-2">입장 직원 — 카메라 스캔</h3>
+          <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+            모바일 PWA. 카메라로 QR 비추기 → 0.5초 안에 녹·주·적 결과. 비행기 모드에서도 동작.
+          </p>
+          <div class="bg-slate-50 rounded-lg p-3 text-xs space-y-1 font-mono border border-slate-200">
+            <p class="text-slate-500">계정: <span class="text-primary font-semibold">staff@demo.booqr.kr</span></p>
+            <p class="text-slate-500">암호: <span class="text-primary font-semibold">Demo1234!</span></p>
+          </div>
+        </a>
+
+        <!-- C: 운영자 -->
+        <a href="https://demo-booqr.koavio.com/admin" target="_blank" rel="noopener"
+           class="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition">
+          <div class="flex items-start justify-between mb-4">
+            <span class="bg-violet-100 text-violet-700 text-xs px-2 py-0.5 rounded font-mono font-bold">C · 2분</span>
+            <span class="text-xl text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition">→</span>
+          </div>
+          <h3 class="font-extrabold text-lg mb-2">운영자 — 콘솔·통계</h3>
+          <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+            KPI · 시간대별 입장 분포 · 프로그램별 출석률 · 광고 관리 · 충돌 로그까지 한 화면.
+          </p>
+          <div class="bg-slate-50 rounded-lg p-3 text-xs space-y-1 font-mono border border-slate-200">
+            <p class="text-slate-500">계정: <span class="text-primary font-semibold">admin@demo.booqr.kr</span></p>
+            <p class="text-slate-500">암호: <span class="text-primary font-semibold">Demo1234!</span></p>
+          </div>
+        </a>
+
+      </div>
+
+      <p class="text-xs text-slate-500 text-center mt-8">
+        ※ 데모 환경은 매일 03:00 KST 자동 리셋. 자유롭게 클릭·생성·삭제하셔도 됩니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─────────────── ⑤ PROCESS ─────────────── -->
+  <section id="process" class="bg-primary-soft">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <p class="text-center text-primary-dark font-semibold text-sm tracking-widest mb-8">
+        도입은 이렇게 진행됩니다
+      </p>
+      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-center gap-3 md:gap-0">
+        <div class="flex-1 max-w-xs mx-auto bg-white border-2 border-primary rounded-xl p-5 text-center">
+          <div class="w-10 h-10 bg-primary text-white rounded-full font-extrabold text-lg flex items-center justify-center mx-auto mb-2">1</div>
+          <p class="font-bold">시연 · 문의</p>
+          <p class="text-xs text-slate-500 mt-1">데모 클릭 + 30분 통화</p>
+        </div>
+        <span class="hidden md:flex text-2xl text-primary font-extrabold mx-3 self-center">▶</span>
+        <span class="md:hidden text-2xl text-primary font-extrabold text-center">▼</span>
+        <div class="flex-1 max-w-xs mx-auto bg-white border-2 border-primary rounded-xl p-5 text-center">
+          <div class="w-10 h-10 bg-primary text-white rounded-full font-extrabold text-lg flex items-center justify-center mx-auto mb-2">2</div>
+          <p class="font-bold">IT 담당자 연동</p>
+          <p class="text-xs text-slate-500 mt-1">webhook 1줄 / 30분 작업</p>
+        </div>
+        <span class="hidden md:flex text-2xl text-primary font-extrabold mx-3 self-center">▶</span>
+        <span class="md:hidden text-2xl text-primary font-extrabold text-center">▼</span>
+        <div class="flex-1 max-w-xs mx-auto bg-white border-2 border-primary rounded-xl p-5 text-center">
+          <div class="w-10 h-10 bg-primary text-white rounded-full font-extrabold text-lg flex items-center justify-center mx-auto mb-2">3</div>
+          <p class="font-bold">운영 시작</p>
+          <p class="text-xs text-slate-500 mt-1">현장 직원 10분 교육</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── ⑥ 파일럿 도입 문의 ─────────────── -->
+  <section id="contact" class="max-w-6xl mx-auto px-6 py-20">
+    <div class="bg-gradient-to-br from-primary to-primary-dark text-white rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
+      <div class="absolute inset-0 hero-dots opacity-30"></div>
+      <div class="relative">
+        <span class="inline-block bg-white/15 border border-white/30 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+          파일럿 도입 문의
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">기관 BMT용 격리 환경, 1:1 시연 가능</h2>
+        <p class="text-white/90 mb-8 max-w-xl mx-auto leading-relaxed">
+          보통 30분 통화로 도입 결정. 기관별 데이터 시드 + 7일 BMT 액세스를 안내해드립니다.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="mailto:cs@koavio.com"
+             class="bg-[#5fffc0] hover:bg-[#3fefb0] text-primary-dark font-bold px-7 py-3.5 rounded-xl text-base">
+            cs@koavio.com 으로 문의
+          </a>
+          <a href="https://demo-booqr.koavio.com/" target="_blank" rel="noopener"
+             class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl text-base">
+            데모 다시 보기
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ─────────────── Footer ─────────────── -->
-  <footer class="max-w-6xl mx-auto px-6 py-10 border-t border-white/10 text-xs text-gray-500 flex flex-wrap justify-between gap-4">
-    <div>
-      <p class="font-semibold text-gray-300 mb-1">BooQR</p>
-      <p>QR 입장 관리 SaaS · 박물관 · 과학관 · 행사 운영</p>
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6 text-sm">
+      <div>
+        <p class="text-xl font-extrabold text-primary-dark mb-2">Boo<span class="text-accent">Q</span>R</p>
+        <p class="text-slate-500 text-xs leading-relaxed">QR Entry Management for Institutions<br>박물관 · 과학관 · 행사 운영</p>
+      </div>
+      <div>
+        <p class="text-xs text-slate-500 mb-2">시연 데모 페이지</p>
+        <a href="https://demo-booqr.koavio.com/" target="_blank" rel="noopener"
+           class="text-primary font-semibold hover:underline">demo-booqr.koavio.com</a>
+      </div>
+      <div>
+        <p class="text-xs text-slate-500 mb-2">문의 이메일</p>
+        <a href="mailto:cs@koavio.com" class="text-primary font-semibold hover:underline">cs@koavio.com</a>
+      </div>
     </div>
-    <div class="text-right">
-      <p>© 2026 BooQR</p>
-      <p>설계서 기반 v1.0</p>
+    <div class="border-t border-slate-100">
+      <div class="max-w-6xl mx-auto px-6 py-4 text-xs text-slate-400 text-center">
+        © koavio.com · BooQR · QR Entry Management for Institutions
+      </div>
     </div>
   </footer>
 
