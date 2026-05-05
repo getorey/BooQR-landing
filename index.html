@@ -342,7 +342,7 @@
   <!-- ─────────────── ⑥ 파일럿 도입 문의 ─────────────── -->
   <section id="contact" class="max-w-6xl mx-auto px-6 py-20">
     <div class="bg-gradient-to-br from-primary to-primary-dark text-white rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
-      <div class="absolute inset-0 hero-dots opacity-30"></div>
+      <div class="absolute inset-0 hero-squares opacity-25 rotate-[8deg] pointer-events-none"></div>
       <div class="relative">
         <span class="inline-block bg-white/15 border border-white/30 text-xs font-semibold px-3 py-1 rounded-full mb-5">
           파일럿 도입 문의
@@ -351,15 +351,50 @@
         <p class="text-white/90 mb-8 max-w-xl mx-auto leading-relaxed">
           보통 30분 통화로 도입 결정. 기관별 데이터 시드 + 7일 BMT 액세스를 안내해드립니다.
         </p>
-        <div class="flex flex-wrap justify-center gap-3">
-          <a href="mailto:cs@koavio.com"
-             class="bg-[#5fffc0] hover:bg-[#3fefb0] text-primary-dark font-bold px-7 py-3.5 rounded-xl text-base">
-            cs@koavio.com 으로 문의
-          </a>
-          <a href="https://demo-booqr.koavio.com/" target="_blank" rel="noopener"
-             class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl text-base">
-            데모 다시 보기
-          </a>
+
+        <!-- 1차 경로: Google Form (가장 폭넓게 동작) -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScppjLt5fcS8e-l_U11ieiUc4BHO_wKcxQpf_8kMsrARVFG8Q/viewform"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-[#5fffc0] hover:bg-[#3fefb0] text-primary-dark font-bold px-8 py-4 rounded-xl text-lg shadow-lg shadow-black/20">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="15" y2="17"/>
+          </svg>
+          양식 작성하고 문의하기
+        </a>
+
+        <!-- 구분선 -->
+        <div class="flex items-center gap-4 my-10 max-w-md mx-auto">
+          <div class="flex-1 h-px bg-white/25"></div>
+          <span class="text-xs text-white/60 tracking-wide">또는 이메일로</span>
+          <div class="flex-1 h-px bg-white/25"></div>
+        </div>
+
+        <!-- 2차 경로: 이메일 (기관 정책상 양식 차단 시) -->
+        <div class="max-w-lg mx-auto">
+          <p class="text-sm text-white/85 mb-4 leading-relaxed">
+            양식이 열리지 않거나 보안 정책상 차단된 환경이면, 사내 웹메일에 직접 보내주세요.
+          </p>
+          <div class="flex flex-wrap items-stretch justify-center gap-2">
+            <code class="bg-white/15 border border-white/30 rounded-lg px-4 py-2.5 font-mono text-sm flex items-center">
+              cs@koavio.com
+            </code>
+            <button type="button"
+                    onclick="navigator.clipboard.writeText('cs@koavio.com').then(()=>{this.dataset.orig=this.dataset.orig||this.textContent;this.textContent='✓ 복사됨';setTimeout(()=>{this.textContent=this.dataset.orig;},2000);}).catch(()=>{this.textContent='복사 실패';});"
+                    class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-medium px-4 py-2.5 rounded-lg text-sm">
+              주소 복사
+            </button>
+            <a href="mailto:cs@koavio.com?subject=BooQR%20%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98&body=%EA%B8%B0%EA%B4%80%EB%AA%85%3A%20%0A%EB%8B%B4%EB%8B%B9%EC%9E%90%3A%20%0A%EC%A7%81%EC%B1%85%3A%20%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%20%0A%EC%98%88%EC%83%81%20%EB%8F%84%EC%9E%85%20%EC%8B%9C%EC%A0%90%3A%20%0A%0A%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9%3A%0A"
+               class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-medium px-4 py-2.5 rounded-lg text-sm">
+              메일 앱으로 열기
+            </a>
+          </div>
+          <p class="text-xs text-white/60 mt-4 leading-relaxed">
+            "주소 복사"는 클립보드에 자동 복사됩니다. 사내 웹메일(Gmail · 다음 등)에 붙여넣어 보내세요.<br>
+            "메일 앱으로 열기"는 Outlook 같은 메일 앱이 설정된 경우에만 동작합니다.
+          </p>
         </div>
       </div>
     </div>
