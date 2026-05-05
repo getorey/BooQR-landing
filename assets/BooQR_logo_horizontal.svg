@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  BooQR Horizontal Lockup
+  Wordmark font: Pretendard ExtraBold (weight 800)
+  Fallbacks: Inter, Apple SD Gothic Neo, Helvetica Neue
+  Pretendard download: https://github.com/orioncactus/pretendard (OFL, free for commercial use)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" width="380" height="100">
+  <title>BooQR Horizontal Logo</title>
+
+  <!-- Logo mark: clean QR finder pattern -->
+  <rect x="6" y="6" width="88" height="88" rx="20" ry="20"
+        fill="none" stroke="#0066CC" stroke-width="13" stroke-linejoin="round"/>
+  <rect x="34" y="34" width="32" height="32" rx="7" ry="7" fill="#0066CC"/>
+  <circle cx="83" cy="83" r="6" fill="#00A86B"/>
+
+  <!-- Wordmark: Pretendard ExtraBold (weight 800), letter-spacing -1.5 -->
+  <text x="125" y="68"
+        font-family="Pretendard, Inter, 'Apple SD Gothic Neo', 'Helvetica Neue', -apple-system, sans-serif"
+        font-size="56" font-weight="800" letter-spacing="-1.5">
+    <tspan fill="#0F172A">Boo</tspan><tspan fill="#0066CC">QR</tspan>
+  </text>
+</svg>

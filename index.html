@@ -53,28 +53,22 @@
   <!-- ─────────────── Header ─────────────── -->
   <header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight text-primary-dark">
-        <!-- QR 마크 (헤더용 small) -->
-        <svg viewBox="0 0 64 64" class="w-7 h-7 shrink-0" aria-label="BooQR">
-          <rect width="64" height="64" rx="13" fill="#0066cc"/>
-          <!-- 좌상단 finder -->
-          <rect x="8" y="8" width="18" height="18" rx="2.5" fill="white"/>
-          <rect x="13" y="13" width="8" height="8" rx="1" fill="#0066cc"/>
-          <!-- 우상단 finder -->
-          <rect x="38" y="8" width="18" height="18" rx="2.5" fill="white"/>
-          <rect x="43" y="13" width="8" height="8" rx="1" fill="#0066cc"/>
-          <!-- 좌하단 finder -->
-          <rect x="8" y="38" width="18" height="18" rx="2.5" fill="white"/>
-          <rect x="13" y="43" width="8" height="8" rx="1" fill="#0066cc"/>
-          <!-- 우하단 데이터 도트 (accent green) -->
-          <rect x="38" y="38" width="7" height="7" rx="1" fill="#5fffc0"/>
-          <rect x="49" y="38" width="7" height="7" rx="1" fill="#5fffc0"/>
-          <rect x="38" y="49" width="7" height="7" rx="1" fill="#5fffc0"/>
-          <rect x="49" y="49" width="7" height="7" rx="1" fill="white"/>
-          <!-- 가운데 연결 -->
-          <rect x="30" y="30" width="4" height="4" fill="white"/>
+      <a href="#" class="flex items-center" aria-label="BooQR — 홈으로">
+        <!-- BooQR Horizontal Lockup (380×100 viewBox) -->
+        <svg viewBox="0 0 380 100" class="h-9 w-auto" role="img" aria-hidden="true">
+          <title>BooQR Horizontal Logo</title>
+          <!-- Logo mark: clean QR finder pattern -->
+          <rect x="6" y="6" width="88" height="88" rx="20" ry="20"
+                fill="none" stroke="#0066CC" stroke-width="13" stroke-linejoin="round"/>
+          <rect x="34" y="34" width="32" height="32" rx="7" ry="7" fill="#0066CC"/>
+          <circle cx="83" cy="83" r="6" fill="#00A86B"/>
+          <!-- Wordmark -->
+          <text x="125" y="68"
+                font-family="'Pretendard Variable', Pretendard, Inter, 'Apple SD Gothic Neo', 'Helvetica Neue', -apple-system, sans-serif"
+                font-size="56" font-weight="800" letter-spacing="-1.5">
+            <tspan fill="#0F172A">Boo</tspan><tspan fill="#0066CC">QR</tspan>
+          </text>
         </svg>
-        Boo<span class="text-accent">Q</span>R
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm text-slate-600">
         <a href="#pain" class="hover:text-slate-900">고민</a>
