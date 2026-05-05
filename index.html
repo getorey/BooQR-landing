@@ -40,10 +40,10 @@
     .underline-soft {
       background: linear-gradient(180deg, transparent 60%, #d6f3e5 60%);
     }
-    /* 사각형 도트 패턴 — SVG 데이터 URI로 14×14 타일, 가운데 5×5 정사각형 */
+    /* 사각형 도트 패턴 — 24×24 타일에 10×10 사각형 중앙 → 도트 간격 14px */
     .hero-squares {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect x='4.5' y='4.5' width='10' height='10' fill='white'/%3E%3C/svg%3E");
-      background-size: 14px 14px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect x='7' y='7' width='10' height='10' fill='white'/%3E%3C/svg%3E");
+      background-size: 24px 24px;
       background-repeat: repeat;
     }
   </style>
@@ -91,7 +91,7 @@
   <!-- ─────────────── ① HERO ─────────────── -->
   <section class="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark text-white">
     <!-- 우상단 사각도트 패턴 (회전 + 1cm 하강, 한쪽 모서리는 hero overflow로 잘림) -->
-    <div class="absolute -top-[26px] -right-16 w-[460px] h-[460px] hero-squares opacity-55 rotate-[8deg] pointer-events-none"></div>
+    <div class="absolute -top-[26px] -right-16 w-[460px] h-[460px] hero-squares opacity-50 rotate-[8deg] pointer-events-none"></div>
     <!-- 부드러운 빛 레이어 -->
     <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none"></div>
 
@@ -105,7 +105,7 @@
               기관용 QR 입장 관리 서비스
             </span>
           </div>
-          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking+[0.02em] mb-6">
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-[0.05em] mb-6">
             예약은 그대로,<br>
             <span class="text-[#5fffc0]">입장 관리</span>는 더 쉽게.
           </h1>
