@@ -40,9 +40,11 @@
     .underline-soft {
       background: linear-gradient(180deg, transparent 60%, #d6f3e5 60%);
     }
-    .hero-dots {
-      background-image: radial-gradient(circle, rgba(255,255,255,0.28) 2px, transparent 2.4px);
+    /* 사각형 도트 패턴 — SVG 데이터 URI로 14×14 타일, 가운데 5×5 정사각형 */
+    .hero-squares {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect x='4.5' y='4.5' width='5' height='5' fill='white'/%3E%3C/svg%3E");
       background-size: 14px 14px;
+      background-repeat: repeat;
     }
   </style>
 </head>
@@ -88,8 +90,8 @@
 
   <!-- ─────────────── ① HERO ─────────────── -->
   <section class="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark text-white">
-    <!-- 우상단 점패턴 (회전된 사각형, 한쪽 모서리는 hero overflow로 잘림) -->
-    <div class="absolute -top-16 -right-16 w-[460px] h-[460px] hero-dots opacity-55 rotate-[8deg] pointer-events-none"></div>
+    <!-- 우상단 사각도트 패턴 (회전 + 1cm 하강, 한쪽 모서리는 hero overflow로 잘림) -->
+    <div class="absolute -top-[26px] -right-16 w-[460px] h-[460px] hero-squares opacity-55 rotate-[8deg] pointer-events-none"></div>
     <!-- 부드러운 빛 레이어 -->
     <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none"></div>
 
