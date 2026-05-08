@@ -58,18 +58,23 @@
   <header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
       <a href="#" class="flex items-center" aria-label="BooQR — 홈으로">
-        <!-- BooQR Horizontal Lockup (380×100 viewBox) -->
-        <svg viewBox="0 0 380 100" class="h-9 w-auto" role="img" aria-hidden="true">
+        <!-- BooQR Horizontal Lockup V5 (600×200 viewBox, 정사각 마크 비율) -->
+        <svg viewBox="0 0 600 200" class="h-9 w-auto" role="img" aria-hidden="true">
           <title>BooQR Horizontal Logo</title>
-          <!-- Logo mark: clean QR finder pattern -->
-          <rect x="6" y="6" width="88" height="88" rx="20" ry="20"
-                fill="none" stroke="#0066CC" stroke-width="13" stroke-linejoin="round"/>
-          <rect x="34" y="34" width="32" height="32" rx="7" ry="7" fill="#0066CC"/>
-          <circle cx="83" cy="83" r="6" fill="#00A86B"/>
+          <!-- Mark: square 180x180 with top/bottom scanner bars + center QR -->
+          <g transform="translate(10,10)">
+            <path d="M 14 46 L 14 26 Q 14 14 26 14 L 154 14 Q 166 14 166 26 L 166 46"
+                  stroke="#0066CC" stroke-width="10" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="60" y="60" width="60" height="60" rx="6" ry="6" fill="#0066CC"/>
+            <path d="M 14 134 L 14 154 Q 14 166 26 166 L 154 166 Q 166 166 166 154 L 166 134"
+                  stroke="#0066CC" stroke-width="10" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
           <!-- Wordmark -->
-          <text x="125" y="68"
+          <text x="220" y="125"
                 font-family="'Pretendard Variable', Pretendard, Inter, 'Apple SD Gothic Neo', 'Helvetica Neue', -apple-system, sans-serif"
-                font-size="56" font-weight="800" letter-spacing="-1.5">
+                font-size="68" font-weight="800" letter-spacing="-1.5">
             <tspan fill="#0F172A">Boo</tspan><tspan fill="#0066CC">QR</tspan>
           </text>
         </svg>
@@ -405,7 +410,23 @@
   <footer class="border-t border-slate-200 bg-white">
     <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6 text-sm">
       <div>
-        <p class="text-xl font-extrabold text-slate-900 mb-2">Boo<span class="text-primary">QR</span></p>
+        <!-- BooQR Mini Horizontal Lockup V5 (290×100 viewBox) -->
+        <svg viewBox="0 0 290 100" class="h-7 w-auto mb-2" role="img" aria-label="BooQR">
+          <g transform="translate(4,5)">
+            <path d="M 8 23 L 8 14 Q 8 8 14 8 L 82 8 Q 88 8 88 14 L 88 23"
+                  stroke="#0066CC" stroke-width="5" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="32" y="32" width="32" height="32" rx="3" ry="3" fill="#0066CC"/>
+            <path d="M 8 73 L 8 82 Q 8 88 14 88 L 82 88 Q 88 88 88 82 L 88 73"
+                  stroke="#0066CC" stroke-width="5" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text x="120" y="65"
+                font-family="'Pretendard Variable', Pretendard, Inter, 'Apple SD Gothic Neo', sans-serif"
+                font-size="38" font-weight="800" letter-spacing="-1">
+            <tspan fill="#0F172A">Boo</tspan><tspan fill="#0066CC">QR</tspan>
+          </text>
+        </svg>
         <p class="text-slate-500 text-xs leading-relaxed">QR Entry Management for Institutions<br>박물관 · 과학관 · 행사 운영</p>
       </div>
       <div>
